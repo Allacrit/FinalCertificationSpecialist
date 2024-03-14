@@ -4,6 +4,7 @@ import program.enums.PetType;
 import program.fabrics.Builder;
 import program.fabrics.PetBuilder;
 import program.models.Pet;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
@@ -34,7 +35,6 @@ public class PetRepository implements IRepository<Pet> {
             String url = props.getProperty("url");
             String username = props.getProperty("username");
             String password = props.getProperty("password");
-            System.out.println(url + username + password);
 
             return DriverManager.getConnection(url, username, password);
         }
