@@ -21,6 +21,9 @@
 >  - Переименовать получившийся файл в "Human Friends"(.
 Пример конечного вывода после команды “ls” :
 Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt  Pictures  Videos.
+>* * ### **Решение**
+> * * ![Task_1.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_1.1.PNG)
+
 >> ### **1.2. Работа с директориями в Linux**
 >   - Создать новую директорию и переместить туда файл "Human Friends".
 >> ### **1.3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину”**
@@ -94,4 +97,5 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 <br>
 <hr>
 
-# <center>**Выполненые задания**<center>
+
+
