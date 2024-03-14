@@ -54,7 +54,7 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 Каждый тип животных будет характеризоваться (например, имена, даты рождения, выполняемые команды и т.д)
 Диаграмму можно нарисовать в любом редакторе, такими как Lucidchart, Draw.io, Microsoft Visio и других.
 >>* * ### **Решение**
->> * * ![Task_2.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_2.1.PNG)
+>> * * ![Task_2.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_2.1.png)
 
 >> ### 2.2. Работа с MySQL.
 >>> #### 2.2.1. После создания диаграммы классов в 2.1 пункте, в 2.2 пункте база данных "Human Friends" должна быть структурирована в соответствии с этой диаграммой. Например, можно создать таблицы, которые будут соответствовать классам "Pets" и "Pack animals", и в этих таблицах будут поля, которые характеризуют каждый тип животных (например, имена, даты рождения, выполняемые команды и т.д.). 
