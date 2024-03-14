@@ -1,49 +1,50 @@
 package validators;
 
+import program.exceptions.UncorrectDataException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
-import program.exceptions.UncorrectDataException;
 
 public class Validator {
 
-    public void validate (String [] data){
+    public void validate(String[] data) {
 
         StringBuilder sb = new StringBuilder();
         boolean flag = true;
 
-        for (int i=0; i < data.length; i++){
-            try{
-                if (i==0)
+        for (int i = 0; i < data.length; i++) {
+            try {
+                if (i == 0)
                     isValidName(data[i]);
-                if (i==1)
-                    isValidDate (data[i]);
+                if (i == 1)
+                    isValidDate(data[i]);
 
-            } catch (UncorrectDataException e){
-                sb.append ("\n");
+            } catch (UncorrectDataException e) {
+                sb.append("\n");
                 sb.append(e.getMessage());
                 flag = false;
             }
         }
-        if (flag == false){
+        if (!flag) {
             throw new UncorrectDataException(sb.toString());
         }
     }
 
-    private boolean isValidName (String name){
+    private boolean isValidName(String name) {
         for (int i = 0; i < name.length(); i++) {
-            if (! Character.UnicodeBlock.of(name.charAt(i)).equals(Character.UnicodeBlock.CYRILLIC)) {
-                throw new UncorrectDataException(String.format("некорректно задано имя, допустимы только буквы кириллицы"));
+            if (!Character.UnicodeBlock.of(name.charAt(i)).equals(Character.UnicodeBlock.CYRILLIC)) {
+                throw new UncorrectDataException("некорректно задано имя, допустимы только буквы кириллицы");
             }
         }
         return true;
     }
 
-    private boolean isValidDate (String birthday)  {
+    private boolean isValidDate(String birthday) {
 
         LocalDate date;
-        Integer [] month_30 = {4, 6, 9, 11};
+        Integer[] month_30 = {4, 6, 9, 11};
         int day;
 
         try {

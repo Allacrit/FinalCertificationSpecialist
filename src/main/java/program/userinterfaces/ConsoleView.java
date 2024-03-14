@@ -2,11 +2,10 @@ package program.userinterfaces;
 
 import program.models.Pet;
 
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleView implements View <Pet> {
+public class ConsoleView implements View<Pet> {
 
     Scanner in;
 
@@ -16,18 +15,18 @@ public class ConsoleView implements View <Pet> {
 
     @Override
     public String getName() {
-        System.out.printf("Имя: ");
+        System.out.print("Имя: ");
         return in.nextLine();
     }
 
     @Override
     public String getBirthday() {
-        System.out.printf("Введите дату рождения в формате 'dd.mm.yyyy': ");
+        System.out.print("Введите дату рождения в формате 'dd.mm.yyyy': ");
         return in.nextLine();
     }
 
     @Override
-    public <T> void printAll (List<T> list, Class <T> clazz) {
+    public <T> void printAll(List<T> list, Class<T> clazz) {
         System.out.print("\033[H\033[J");
         if (list.isEmpty())
             System.out.println("список пуст");

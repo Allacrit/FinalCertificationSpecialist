@@ -2,11 +2,14 @@ package program.userinterfaces;
 
 import java.util.List;
 
-public interface View <T>{
+public interface View<T> {
 
     String getName();
+
     String getBirthday();
-    <U> void printAll (List<U> list, Class <U> clazz);
-    void showMessage (String s);
+
+    <U> void printAll(List<U> list, Class<U> clazz);
+
+    void showMessage(String s);
 
 }

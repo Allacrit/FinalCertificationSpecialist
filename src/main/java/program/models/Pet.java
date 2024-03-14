@@ -9,33 +9,33 @@ public abstract class Pet {
     protected String nickname;
     protected LocalDate birthday;
 
-    public void setPetId(int petId) {
-        this.petId = petId;
-    }
-
     public int getPetId() {
         return petId;
     }
 
-    public void setName(String name) {
-        this.nickname = name;
+    public void setPetId(int petId) {
+        this.petId = petId;
     }
 
     public String getName() {
         return nickname;
     }
 
-    public void setBirthday(LocalDate date) {
-        this.birthday = date;
+    public void setName(String name) {
+        this.nickname = name;
     }
 
-    public LocalDate getBirthdayDate(){
+    public LocalDate getBirthdayDate() {
         return birthday;
     }
 
     public String getBirthday() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return formatter.format(birthday);
+    }
+
+    public void setBirthday(LocalDate date) {
+        this.birthday = date;
     }
 
     @Override

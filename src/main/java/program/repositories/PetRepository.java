@@ -4,20 +4,19 @@ import program.enums.PetType;
 import program.fabrics.Builder;
 import program.fabrics.PetBuilder;
 import program.models.Pet;
-
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.*;
-import java.time.LocalDate;
 
 public class PetRepository implements IRepository<Pet> {
 
-    private Builder petBuilder;
+    private final Builder petBuilder;
     private Statement sqlSt;
     private ResultSet resultSet;
     private String SQLstr;
@@ -26,7 +25,20 @@ public class PetRepository implements IRepository<Pet> {
         this.petBuilder = new PetBuilder();
     }
 
-    ;
+    public static Connection getConnection() throws SQLException, IOException {
+
+        Properties props = new Properties();
+        try (FileInputStream fis = new FileInputStream("src/main/java/program/resources/database.properties")) {
+
+            props.load(fis);
+            String url = props.getProperty("url");
+            String username = props.getProperty("username");
+            String password = props.getProperty("password");
+            System.out.println(url + username + password);
+
+            return DriverManager.getConnection(url, username, password);
+        }
+    }
 
     @Override
     public List<Pet> getAll() {
@@ -192,20 +204,6 @@ public class PetRepository implements IRepository<Pet> {
         } catch (ClassNotFoundException | IOException | SQLException ex) {
             Logger.getLogger(PetRepository.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex.getMessage());
-        }
-    }
-
-    public static Connection getConnection() throws SQLException, IOException {
-
-        Properties props = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/resources/database.properties")) {
-
-            props.load(fis);
-            String url = props.getProperty("url");
-            String username = props.getProperty("username");
-            String password = props.getProperty("password");
-
-            return DriverManager.getConnection(url, username, password);
         }
     }
 }

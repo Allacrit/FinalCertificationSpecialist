@@ -15,10 +15,10 @@ import java.time.format.DateTimeFormatter;
 
 
 public class PetController {
-    private IRepository<Pet> petRepository;
-    private Builder petCreator;
     private final View<Pet> view;
-    private Validator validator;
+    private final IRepository<Pet> petRepository;
+    private final Builder petCreator;
+    private final Validator validator;
 
     public PetController(IRepository<Pet> petRepository) {
         this.petRepository = petRepository;
