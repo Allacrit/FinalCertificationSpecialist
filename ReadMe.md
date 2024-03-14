@@ -58,6 +58,113 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 
 >> ### 2.2. Работа с MySQL.
 >>> #### 2.2.1. После создания диаграммы классов в 2.1 пункте, в 2.2 пункте база данных "Human Friends" должна быть структурирована в соответствии с этой диаграммой. Например, можно создать таблицы, которые будут соответствовать классам "Pets" и "Pack animals", и в этих таблицах будут поля, которые характеризуют каждый тип животных (например, имена, даты рождения, выполняемые команды и т.д.). 
+>>>
+>>>   ### **Решение**
+>>> 
+>>>
+>>> ```
+>>> CREATE DATABASE HumanFriends; 
+>>>
+>>> USE HumanFriends;
+>>>
+>>>CREATE TABLE animals
+>>>(
+>>>	Id INT AUTO_INCREMENT PRIMARY KEY,  
+>>>	Animal_class VARCHAR(50)
+>>> );
+>>>
+>>> INSERT INTO animals (Animal_class)
+>>> VALUES ('pets'),
+>>> ('pack animals');  
+>>> 
+>>> CREATE TABLE pets
+>>> (
+>>> 	Id INT AUTO_INCREMENT PRIMARY KEY,
+>>>     Pet_class VARCHAR (50),
+>>>     Animal_id INT,
+>>>    FOREIGN KEY (Animal_id) REFERENCES animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>> );
+>>> 
+>>> INSERT INTO pets (Pet_class, Animal_id)
+>>> VALUES ('Dog', 1),
+>>> ('Cat', 1),  
+>>> ('Hamster', 1); 
+>>> 
+>>> CREATE TABLE pack_animals
+>>> (
+>>> 	Id INT AUTO_INCREMENT PRIMARY KEY,
+>>>     Pack_animal_class VARCHAR (50),
+>>>    Animal_id INT,
+>>>    FOREIGN KEY (Animal_id) REFERENCES animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>> );
+>>>
+>>> INSERT INTO pack_animals (Pack_animal_class, Animal_id)
+>>> VALUES ('Horse', 2),
+>>> ('Camel', 2),  
+>>> ('Donkey', 2); 
+>>>     
+>>> 
+>>> CREATE TABLE dogs
+>>> (       
+>>>    Id INT AUTO_INCREMENT PRIMARY KEY, 
+>>>    Name VARCHAR(50), 
+>>>    Birthday DATE,
+>>>    Commands VARCHAR(50),
+>>>    Pet_id int,
+>>>    Foreign KEY (Pet_id) REFERENCES pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>> );
+>>>
+>>> CREATE TABLE cats
+>>> (       
+>>>    Id INT AUTO_INCREMENT PRIMARY KEY, 
+>>>    Name VARCHAR(50), 
+>>>    Birthday DATE,
+>>>    Commands VARCHAR(50),
+>>>    Pet_id int,
+>>>    Foreign KEY (Pet_id) REFERENCES pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>> );
+>>>
+>>> CREATE TABLE hamsters
+>>> (       
+>>>    Id INT AUTO_INCREMENT PRIMARY KEY, 
+>>>    Name VARCHAR(50), 
+>>>    Birthday DATE,
+>>>    Commands VARCHAR(50),
+>>>    Pet_id int,
+>>>    Foreign KEY (Pet_id) REFERENCES pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>>);
+>>>
+>>>CREATE TABLE horses
+>>>(       
+>>>    Id INT AUTO_INCREMENT PRIMARY KEY, 
+>>>    Name VARCHAR(50), 
+>>>    Birthday DATE,
+>>>    Commands VARCHAR(50),
+>>>    Pack_animal_id int,
+>>>    Foreign KEY (Pack_animal_id) REFERENCES pack_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>> );
+>>>
+>>>CREATE TABLE camels
+>>> (       
+>>>    Id INT AUTO_INCREMENT PRIMARY KEY, 
+>>>    Name VARCHAR(50), 
+>>>    Birthday DATE,
+>>>    Commands VARCHAR(50),
+>>>    Pack_animal_id int,
+>>>    Foreign KEY (Pack_animal_id) REFERENCES pack_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>> );
+>>>
+>>> CREATE TABLE donkeys
+>>> (       
+>>>    Id INT AUTO_INCREMENT PRIMARY KEY, 
+>>>    Name VARCHAR(50), 
+>>>    Birthday DATE,
+>>>    Commands VARCHAR(50),
+>>>    Pack_animal_id int,
+>>>    Foreign KEY (Pack_animal_id) REFERENCES pack_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+>>>);
+>>> ```
+>>
 >>> #### 2.2.2   - В ранее подключенном MySQL создать базу данных с названием "Human Friends".
 >>>   - Создать таблицы, соответствующие иерархии из вашей диаграммы классов.
 >>>   - Заполнить таблицы данными о животных, их командах и датами рождения.
