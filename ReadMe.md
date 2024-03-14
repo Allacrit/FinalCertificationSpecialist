@@ -37,11 +37,14 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 >> ### **1.4. Управление deb-пакетами**
 >  - Установить и затем удалить deb-пакет, используя команду `dpkg`.
 >> ### **1.5. История команд в терминале Ubuntu**
+>>* * ### **Решение**
+>> * * ![Task_1.4](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_1.4.PNG)
 >>   - Сохранить и выложить историю ваших терминальных команд в Ubuntu.
 >> * * ### **Решение**
 >> * * [1.1. Использование команды cat в Linux](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.1.txt)
 >> * * [1.2. Работа с директориями в Linux](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.2.txt)
 >> * * [1.3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину”](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.3.txt)
+>> * * [1.4. Управление deb-пакетами](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.4.txt)
 
 <br> <br>
 

@@ -1,0 +1,5 @@
+sudo wget http://archive.ubuntu.com/ubuntu/pool/universe/s/smlnj/nowhere_110.79-6_amd64.deb
+
+sudo dpkg -i nowhere_110.79-6_amd64.deb 
+
+sudo dpkg -r nowhere
