@@ -35,7 +35,8 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 >> ### **1.5. История команд в терминале Ubuntu**
 >>   - Сохранить и выложить историю ваших терминальных команд в Ubuntu.
 >> * * ### **Решение**
->> * * [Task_1.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.1.txt)
+>> * * [1.1. Использование команды cat в Linux](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.1.txt)
+>> * * [1.2. Работа с директориями в Linux](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.2.txt)
 
 <br> <br>
 
