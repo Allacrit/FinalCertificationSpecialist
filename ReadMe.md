@@ -22,7 +22,7 @@
 Пример конечного вывода после команды “ls” :
 Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt  Pictures  Videos.
 >* * ### **Решение**
-> ![Task_1.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_1.1.PNG)
+> * * ![Task_1.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_1.1.PNG)
 
 >> ### **1.2. Работа с директориями в Linux**
 >   - Создать новую директорию и переместить туда файл "Human Friends".
