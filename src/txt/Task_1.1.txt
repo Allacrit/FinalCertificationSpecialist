@@ -1,0 +1,15 @@
+cat > pets
+ dog Alma 19.06.2020
+ cat Leya 22.10.2021
+ hamster Yasha 11.06.2022
+
+cat > pack_animals
+ horse Lili 05.12.2015
+ camel John 01.01.2018
+ donkey Ia 18.04.2023
+
+cat pets pack_animals > final
+
+mv final HumanFriends
+
+ls
