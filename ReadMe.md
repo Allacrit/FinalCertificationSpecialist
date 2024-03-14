@@ -168,34 +168,90 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 >>> #### 2.2.2   - В ранее подключенном MySQL создать базу данных с названием "Human Friends".
 >>>   - Создать таблицы, соответствующие иерархии из вашей диаграммы классов.
 >>>   - Заполнить таблицы данными о животных, их командах и датами рождения.
+>>>   ### **Решение**
+>>> ```
+>>> INSERT INTO dogs (Name, Birthday, Commands, Pet_id)
+>>> VALUES ('Рэкс', '2022-11-21', 'фас, дай лапу, cидеть, голос', 1),
+>>> ('Барбос', '2018-03-05', 'лежать, ко мне', 1),  
+>>> ('Альма', '2019-06-19', 'сидеть, лежать, лапу, след', 1);
+>>> 
+>>> INSERT INTO cats (Name, Birthday, Commands, Pet_id)
+>>> VALUES ('Муся', '2015-09-04', 'Муся', 2),
+>>> ('Лея', '2020-10-22', "Лея, брысь", 2),  
+>>> ('Кисель', '2020-03-03', NULL, 2); 
+>>> 
+>>> INSERT INTO hamsters (Name, Birthday, Commands, Pet_id)
+>>> VALUES ('Буся', '2020-03-15', NULL, 3),
+>>> ('Люся', '2022-08-12', "Люся", 3),  
+>>> ('Зина', '2023-01-11', NULL, 3);
+>>> 
+>>> INSERT INTO horses (Name, Birthday, Commands, Pack_animal_id)
+>>> VALUES ('Зорька', '2018-11-01', 'рысь, хоп, шагом, тихо', 1),
+>>> ('Гром', '2019-06-19', 'хоп, тише', 1),  
+>>> ('Ветер', '2023-02-22', 'шагом, тише', 1); 
+>>> 
+>>> INSERT INTO camels (Name, Birthday, Commands, Pack_animal_id)
+>>> VALUES ('Вася', '2021-12-16', NULL, 2),
+>>> ('Рокки', '2017-06-02', 'Рокки', 2),  
+>>> ('Патрик', '2013-02-22', 'Патрик ко мне', 2);
+>>> 
+>>> INSERT INTO donkeys (Name, Birthday, Commands, Pack_animal_id)
+>>> VALUES ('Иа', '2016-04-30', NULL, 3),
+>>> ('Смелый', '2021-09-22', 'Cмелый ко мне', 3),  
+>>> ('Семен', '2019-01-18', 'шагом, Семен', 3);
+>>> ```
 >>>   - Удалить записи о верблюдах и объединить таблицы лошадей и ослов.
+>>>   ### **Решение**
+>>> ```
+>>> SET SQL_SAFE_UPDATES = 0;
+>>> DELETE FROM camels;
+>>> 
+>>> SELECT Name, Birthday, Commands FROM horses
+>>> UNION ALL SELECT  Name, Birthday, Commands FROM donkeys;
+>>> ```
 >>>   - Создать новую таблицу для животных в возрасте от 1 до 3 лет и вычислить их возраст с точностью до месяца.
+>>>   ### **Решение**
+>>> ```
+>>> CREATE TEMPORARY TABLE all_animals AS
+>>>    SELECT *, 'Собаки' as class FROM dogs
+>>>    UNION SELECT *, 'Кошки' AS class FROM cats
+>>>    UNION SELECT *, 'Хомяки' AS class FROM hamsters
+>>>    UNION SELECT *, 'Лошади' AS class FROM horses
+>>>    UNION SELECT *, 'Ослы' AS class FROM donkeys;
+>>> 
+>>> CREATE TABLE young_animals AS
+>>> SELECT Name, Birthday, Commands, class, TIMESTAMPDIFF(MONTH, Birthday, CURDATE()) AS Age_in_month
+>>> FROM all_animals WHERE Birthday BETWEEN ADDDATE(curdate(), INTERVAL -3 YEAR) AND ADDDATE(CURDATE(),INTERVAL -1 YEAR);
+>>> ```
+>>>
 >>>   - Объединить все созданные таблицы в одну, сохраняя информацию о принадлежности к исходным таблицам.
->>> ### **Пример заполненной таблицы для теста:**
->>> ~~~
->>> Лист "Pets"
->>> ID	Name	   Type  	BirthDate	    Commands
->>> 1	Fido	   Dog      2020-01-01  	Sit, Stay, Fetch
->>> 2	Whiskers   Cat      2019-05-15   	Sit, Pounce
->>> 3	Hammy      Hamster	2021-03-10	    Roll, Hide
->>> 4	Buddy	   Dog	    2018-12-10  	Sit, Paw, Bark
->>> 5	Smudge	   Cat	    2020-02-20	    Sit, Pounce, Scratch
->>> 6	Peanut	   Hamster	2021-08-01	    Roll, Spin
->>> 7	Bella	   Dog	    2019-11-11	    Sit, Stay, Roll
->>> 8	Oliver     Cat	    2020-06-30	    Meow, Scratch, Jump
->>> ~~~
->>> ~~~
->>> Лист "PackAnimals"
->>> ID	Name  	   Type  	BirthDate  	   Commands
->>> 1	Thunder    Horse	2015-07-21	   Trot, Canter, Gallop
->>> 2	Sandy 	   Camel	2016-11-03	   Walk, Carry Load
->>> 3	Eeyore     Donkey	2017-09-18	   Walk, Carry Load, Bray
->>> 4	Storm 	   Horse	2014-05-05	   Trot, Canter
->>> 5	Dune  	   Camel	2018-12-12	   Walk, Sit
->>> 6	Burro 	   Donkey	2019-01-23	   Walk, Bray, Kick
->>> 7	Blaze 	   Horse	2016-02-29	   Trot, Jump, Gallop
->>> 8	Sahara     Camel	2015-08-14	   Walk, Run
->>> ~~~
+>>>   ### **Решение**
+>>> ```
+>>> SELECT h.Name, h.Birthday, h.Commands, pa.Pack_animal_class, ya.Age_in_month 
+>>> FROM horses h
+>>> LEFT JOIN young_animals ya ON ya.Name = h.Name
+>>> LEFT JOIN pack_animals pa ON pa.Id = h.Pack_animal_id
+>>> UNION 
+>>> SELECT d.Name, d.Birthday, d.Commands, pa.Pack_animal_class, ya.Age_in_month 
+>>> FROM donkeys d 
+>>> LEFT JOIN young_animals ya ON ya.Name = d.Name
+>>> LEFT JOIN pack_animals pa ON pa.Id = d.Pack_animal_id
+>>> UNION
+>>> SELECT c.Name, c.Birthday, c.Commands, p.Pet_class, ya.Age_in_month 
+>>> FROM cats c
+>>> LEFT JOIN young_animals ya ON ya.Name = c.Name
+>>> LEFT JOIN pets p ON p.Id = c.Pet_id
+>>> UNION
+>>> SELECT d.Name, d.Birthday, d.Commands, p.Pet_class, ya.Age_in_month 
+>>> FROM dogs d
+>>> LEFT JOIN young_animals ya ON ya.Name = d.Name
+>>> LEFT JOIN pets p ON p.Id = d.Pet_id
+>>> UNION
+>>> SELECT hm.Name, hm.Birthday, hm.Commands, p.Pet_class, ya.Age_in_month 
+>>> FROM hamsters hm
+>>> LEFT JOIN young_animals ya ON ya.Name = hm.Name
+>>> LEFT JOIN pets p ON p.Id = hm.Pet_id;
+>>> ```
 >> ### 2.3. Java
 >>   - Создать иерархию классов в Java, который будет повторять диаграмму классов созданную в задаче 2.1 (Диаграмма классов).
 >> ### 2.4. Программа-реестр домашних животных
