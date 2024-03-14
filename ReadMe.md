@@ -271,7 +271,7 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 >>> * * Счетчик животных
 >>> * * * Создать механизм, который позволяет вывести на экран общее количество созданных животных любого типа (Как домашних, так и вьючных), то есть при создании каждого нового животного счетчик увеличивается на “1”.
 >>   ### **Решение**
->> ## [Программа работы с животными](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.4.txt)
+>> ## [Программа работы с животными](https://github.com/Allacrit/FinalCertificationSpecialist/tree/master/src/main/java/program)
 <br>
 <br>
 <hr>
