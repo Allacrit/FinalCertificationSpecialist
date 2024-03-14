@@ -13,5 +13,3 @@ public class Main {
         new ConsoleMenu(controller).start();
     }
 }
-
-//
