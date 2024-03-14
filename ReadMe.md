@@ -28,8 +28,12 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 >>   - Создать новую директорию и переместить туда файл "Human Friends".
 >>* * ### **Решение**
 >> * * ![Task_1.2](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_1.2.PNG)
+
 >> ### **1.3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину”**
->   - Подключить дополнительный репозиторий MySQL и установить один из пакетов из этого репозитория.
+>>   - Подключить дополнительный репозиторий MySQL и установить один из пакетов из этого репозитория.
+>>* * ### **Решение**
+>> * * ![Task_1.3](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/Images/Task_1.3.PNG)
+
 >> ### **1.4. Управление deb-пакетами**
 >  - Установить и затем удалить deb-пакет, используя команду `dpkg`.
 >> ### **1.5. История команд в терминале Ubuntu**
