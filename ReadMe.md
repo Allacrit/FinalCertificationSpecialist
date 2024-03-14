@@ -32,8 +32,9 @@ Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt 
 >> ### **1.4. Управление deb-пакетами**
 >  - Установить и затем удалить deb-пакет, используя команду `dpkg`.
 >> ### **1.5. История команд в терминале Ubuntu**
->   - Сохранить и выложить историю ваших терминальных команд в Ubuntu.
-В формате: Файла с ФИО, датой сдачи, номером группы(или потока)
+>>   - Сохранить и выложить историю ваших терминальных команд в Ubuntu.
+>> * * ### **Решение**
+>> * * [Task_1.1](https://github.com/Allacrit/FinalCertificationSpecialist/blob/master/src/txt/Task_1.1.txt)
 
 <br> <br>
 
