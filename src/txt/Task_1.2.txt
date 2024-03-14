@@ -1,0 +1,7 @@
+mkdir animals
+
+mv HumanFriends animals/
+
+cd animals/
+
+ll
